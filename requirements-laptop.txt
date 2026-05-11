@@ -1,0 +1,10 @@
+# Minimal pinned requirements for a reproducible laptop install
+langgraph==1.1.10
+pydantic==2.13.4
+PyYAML==6.0.3
+rich==15.0.0
+typer==0.25.1
+# Optional sqlite checkpoint adapter (uncomment if you need sqlite persistence)
+langgraph-checkpoint-sqlite==3.0.3
+# typing stubs for PyYAML to satisfy mypy in some environments
+types-PyYAML==6.0.12.20260510

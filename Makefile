@@ -9,6 +9,10 @@ install-dev:
 install-sqlite:
 	python -m pip install -e ".[sqlite]"
 
+install-laptop:
+	@echo "Run the setup script for your platform:"
+	@echo "  Windows (PowerShell): .\\scripts\\setup_laptop.ps1 [-WithSqlite]"
+	@echo "  Unix: ./scripts/setup_laptop.sh [sqlite]"
 test:
 	pytest
 

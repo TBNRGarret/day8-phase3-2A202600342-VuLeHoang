@@ -148,6 +148,7 @@ def retry_or_fallback_node(state: AgentState) -> dict:
 def answer_node(state: AgentState) -> dict:
     """Produce a final response grounded in tool results or classification."""
     tool_results = state.get("tool_results", [])
+    answer: str
     if tool_results:
         latest = tool_results[-1]
         if "SUCCESS" in latest:
@@ -164,12 +165,9 @@ def answer_node(state: AgentState) -> dict:
 
 
 def evaluate_node(state: AgentState) -> dict:
-    """Evaluate tool results — the 'done?' check that enables retry loops.
-
-    TODO(student): replace heuristic with LLM-as-judge or structured validation.
-    """
+    """Evaluate tool results - the 'done?' check that enables retry loops."""
     tool_results = state.get("tool_results", [])
-    latest = tool_results[-1] if tool_results else ""
+    latest: str = tool_results[-1] if tool_results else ""
     if "ERROR" in latest:
         return {
             "evaluation_result": "needs_retry",
