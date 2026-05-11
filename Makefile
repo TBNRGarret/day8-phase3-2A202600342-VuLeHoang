@@ -1,7 +1,13 @@
-.PHONY: install test lint typecheck run-scenarios grade-local clean
+.PHONY: install install-dev install-sqlite test lint typecheck run-scenarios grade-local clean
 
 install:
-	pip install -e '.[dev]'
+	python -m pip install -e .
+
+install-dev:
+	python -m pip install -e '.[dev]'
+
+install-sqlite:
+	python -m pip install -e ".[sqlite]"
 
 test:
 	pytest
